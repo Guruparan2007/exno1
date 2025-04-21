@@ -21,176 +21,22 @@ STEP 5: Remove outliers using IQR
 STEP 6: Use zscore of to remove outliers
 
 # Coding and Output
+![Ex im1](https://github.com/user-attachments/assets/dcafe988-72e8-429a-9db1-263976a8d430)
+![Ex im2](https://github.com/user-attachments/assets/15f2ecb9-8e3b-43c3-90e0-ca16455254a6)
+![Ex im3](https://github.com/user-attachments/assets/1b771278-4aba-40f1-a297-3a8695e166fd)
+![Ex im4](https://github.com/user-attachments/assets/4f882022-5f26-49bb-9422-834c99c523b6)
+![Ex im5](https://github.com/user-attachments/assets/3cdaacb5-aa9e-4795-93d7-a05b646956e9)
+![Ex im6](https://github.com/user-attachments/assets/48c637a5-6d8d-491c-9d58-c7d8e31ce679)
+![Ex im7](https://github.com/user-attachments/assets/3ca08125-d7ac-4de0-82d1-4c9e241a9f86)
+![Ex im8](https://github.com/user-attachments/assets/06aaa585-b333-451e-8d89-3c19538be3af)
+![Ex im9](https://github.com/user-attachments/assets/523b70e0-ee40-4d6d-ba5d-3a78dd7186f5)
+![Ex im10](https://github.com/user-attachments/assets/aef1e1da-6be3-4f26-9c4c-c02b751c602c)
+![Ex im11](https://github.com/user-attachments/assets/29b5e664-27a4-4f94-a5f1-5747f86799b2)
+![Ex im12](https://github.com/user-attachments/assets/141a59db-a165-4686-9a85-f6a249fa3ea3)
+![Ex im13](https://github.com/user-attachments/assets/379772b6-4cbd-4f8b-b1cb-7e838a4b9309)
+![Ex im14](https://github.com/user-attachments/assets/67ba4337-ca7c-43c8-874c-3ae70902e31b)
+![Ex im15](https://github.com/user-attachments/assets/37726b99-4700-4161-921a-0e0bdd031a4c)
+![Ex im16](https://github.com/user-attachments/assets/14dea158-4351-490f-8991-e71770ca1008)
 
-~~~
-import pandas as pd
-df=pd.read_csv("/content/SAMPLEIDS (1).csv")
-df
-~~~
-~~~
-df.shape
-~~~
-~~~
-df.describe()
-~~~
-~~~
-df.info()
-~~~
-~~~
-df.head(10)
-~~~
-~~~
-df.tail(10)
-~~~
-~~~
-df.isna().sum()
-~~~
-~~~
-df.dropna(how='any').shape
-~~~
-~~~
-df.dropna(how='any')
-~~~
-~~~
-mean=df.TOTAL.mean()
-mean
-~~~
-~~~
-df.TOTAL.fillna(mean,inplace=True)
-df
-~~~
-~~~
-df.isnull().sum()
-~~~
-~~~
-df.M1.fillna(method='ffill',inplace=True)
-df
-~~~
-~~~
-df.isnull().sum()
-~~~
-~~~
-df.M2.fillna(method='ffill',inplace=True)
-df
-~~~
-~~~
-df.isna().sum()
-~~~
-~~~
-df.M3.fillna(method='ffill',inplace=True)
-df
-~~~
-~~~
-df.isnull().sum()
-~~~
-~~~
-df.duplicated()
-~~~
-~~~
-df.drop_duplicates(inplace=True)
-df
-~~~
-~~~
-df.duplicated()
-~~~
-~~~
-df['DOB']
-~~~
-~~~
-import seaborn as sns
-sns.heatmap(df.isnull(),yticklabels=False,annot=True)
-~~~
-~~~
-df.dropna(inplace=True)
-sns.heatmap(df.isnull(),yticklabels=False,annot=True)
-~~~
-~~~
-age=[1,3,28,27,25,92,30,39,40,50,26,24,29,94]
-df=pd.DataFrame(age)
-df
-~~~
-~~~
-sns.boxplot(data=df)
-~~~
-~~~
-sns.scatterplot(data=df)
-~~~
-~~~
-q1=df.quantile(0.25)
-q2=df.quantile(0.5)
-q3=df.quantile(0.75)
-iqr=q3-q1
-iqr
-~~~
-~~~
-import numpy as np
-Q1=np.percentile(df,25)
-Q3=np.percentile(df,75)
-IQR=Q3-Q1
-IQR
-~~~
-~~~
-lower_bound=Q1-1.5*IQR
-upper_bound=Q3+1.5*IQR
-lower_bound
-~~~
-~~~
-upper_bound
-~~~
-~~~
-outliers=[x for x in age if x<lower_bound or x>upper_bound]
-print("Q1:",Q1)
-print("Q3:",Q3)
-print("IQR:",IQR)
-print("Lower Bound:",lower_bound)
-~~~
-~~~
-print("Upper Bound:",upper_bound)
-print("Outliers:",outliers)
-~~~
-~~~
-df=df[((df>=lower_bound)&(df<=upper_bound))]
-df
-~~~
-~~~
-df=df.dropna()
-df
-~~~
-~~~
-sns.boxplot(data=df)
-~~~
-~~~
-sns.scatterplot(data=df)
-~~~
-~~~
-data=[1,2,2,2,3,1,1,15,2,2,2,3,1,1,2]
-mean=np.mean(data)
-std=np.std(data)
-print('mean of the dataset is',mean)
-print('std.deviation is',std)
-~~~
-~~~
-threshold=3
-outlier=[]
-for i in data:
-  z=(i-mean)/std
-  if z>threshold:
-    outlier.append(i)
-print('outlier in dataset is',outlier)
-~~~
-~~~
-import pandas as pd
-import numpy as np
-import seaborn as sns
-from scipy import stats
-data={'weight':[12,15,18,21,24,27,30,33,36,39,42,45,48,51,54,57,60,63,
-66,69,202,72,75,78,81,84,232,87,90,93,96,99,258]}
-df=pd.DataFrame(data)
-df
-~~~
-~~~
-z=np.abs(stats.zscore(df))
-print(df[z['weight']>3])
-~~~
 # Result
-          <<include your Result here>>
+            Thus the program executed successfully
